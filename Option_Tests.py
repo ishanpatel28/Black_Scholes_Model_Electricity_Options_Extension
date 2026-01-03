@@ -73,8 +73,8 @@ def load_calibrated_params(path: str = PARAMS_JSON):
 
     kappa = float(params["kappa"])
     theta = float(params["theta"])
-    sigma = float(params["sigma"])      # daily diffusion std
-    lam   = float(params["lambda"])     # jumps per day
+    sigma = float(params.get("sigma_d", params.get("sigma")))          # daily diffusion sigma
+    lam   = float(params.get("lambda_d", params.get("lambda")))        # daily jump intensity
     mu_J  = float(params["mu_J"])
     sig_J = float(params["sig_J"])
 
